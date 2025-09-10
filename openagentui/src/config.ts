@@ -35,17 +35,17 @@ export interface ColorPalette {
 
 export const colorPalette: ColorPalette = {
     // Background Colors
-    primary: '#d6cbc1',               // Timberwolf - Main backgrounds
-    panel: '#f3f1ee',                // Light cream - Analysis panels
-    content: '#f8f7f5',              // Off-white cream - Content areas
-    toolbar: '#4a4a4a',              // Charcoal gray - Navigation toolbar
-    filter: '#e8e5e0',               // Warm gray - Filter interfaces
+    primary: '#3d3a37',               // Dark muted gray - Main backgrounds
+    panel: '#484440',                // Medium dark muted - Analysis panels
+    content: '#524e49',              // Light dark muted - Content areas
+    toolbar: '#2f2c29',              // Very dark muted - Navigation toolbar
+    filter: '#423e3a',               // Dark muted brown - Filter interfaces
 
     // Text Colors
-    text_primary: '#36453b',         // Dark slate gray - Main text
-    text_secondary: '#596869',       // Dim gray - Secondary text
-    text_light: '#f3f1ee',           // Cream white - Light text on dark
-    text_disabled: '#a0a0a0',        // Medium gray - Disabled states
+    text_primary: '#d4cfc7',         // Soft cream - Main text
+    text_secondary: '#b8afa3',       // Muted beige - Secondary text
+    text_light: '#e6e0d6',           // Light cream - Light text on dark
+    text_disabled: '#857c71',        // Muted brown - Disabled states
 
     // Border & Accent Colors
     border_primary: '#937a62',       // Medium brown - Main borders
@@ -76,6 +76,7 @@ export const cssVariables = {
     '--bg-content': colorPalette.content,
     '--bg-toolbar': colorPalette.toolbar,
     '--bg-filter': colorPalette.filter,
+    '--bg-elevated': '#4a4642',
     '--text-primary': colorPalette.text_primary,
     '--text-secondary': colorPalette.text_secondary,
     '--text-light': colorPalette.text_light,

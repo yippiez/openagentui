@@ -1,43 +1,62 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <link rel="stylesheet" href="/src/styles.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Tauri App</title>
-    <script type="module" src="/src/main.ts" defer></script>
-  </head>
 
-  <body>
-    <main class="container">
-      <h1>Welcome to Tauri</h1>
+<head>
+  <meta charset="UTF-8" />
+  <link rel="stylesheet" href="/src/styles.css" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>OpenAgent UI</title>
+  <script type="module" src="/src/main.ts" defer></script>
+</head>
 
-      <div class="row">
-        <a href="https://vite.dev" target="_blank">
-          <img src="/src/assets/vite.svg" class="logo vite" alt="Vite logo" />
-        </a>
-        <a href="https://tauri.app" target="_blank">
-          <img
-            src="/src/assets/tauri.svg"
-            class="logo tauri"
-            alt="Tauri logo"
-          />
-        </a>
-        <a href="https://www.typescriptlang.org/docs" target="_blank">
-          <img
-            src="/src/assets/typescript.svg"
-            class="logo typescript"
-            alt="typescript logo"
-          />
-        </a>
-      </div>
-      <p>Click on the Tauri logo to learn more about the framework</p>
+<body>
+  <!-- Main Selection Container -->
+  <main class="selection-container">
+    <div class="options-container">
 
-      <form class="row" id="greet-form">
-        <input id="greet-input" placeholder="Enter a name..." />
-        <button type="submit">Greet</button>
-      </form>
-      <p id="greet-msg"></p>
-    </main>
-  </body>
+      <!-- Local Agent Connection Option -->
+      <button class="option-button" id="local-option" onclick="selectLocal()">
+        <div class="button-content">
+          <div class="title-icon-row">
+            <h3>Local Agent</h3>
+            <div class="icon-container">
+              <svg class="option-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M3 8L12 3L21 8V16C21 16.5304 20.7893 17.0391 20.4142 17.4142C20.0391 17.7893 19.5304 18 19 18H5C4.46957 18 3.96086 17.7893 3.58579 17.4142C3.21071 17.0391 3 16.5304 3 16V8Z"
+                  stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+                <path d="M9 21V12H15V21" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                  stroke-linejoin="round" />
+              </svg>
+            </div>
+          </div>
+          <p>Connect to agents running on your local machine. Perfect for development, testing, and private workflows.
+          </p>
+        </div>
+      </button>
+
+      <!-- Remote/SSH Agent Connection Option -->
+      <button class="option-button" id="remote-option" onclick="selectRemote()">
+        <div class="button-content">
+          <div class="title-icon-row">
+            <h3>Remote Agent</h3>
+            <div class="icon-container">
+              <svg class="option-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <path
+                  d="M4 7C4 6.44772 4.44772 6 5 6H19C19.5523 6 20 6.44772 20 7V17C20 17.5523 19.5523 18 19 18H5C4.44772 18 4 17.5523 4 17V7Z"
+                  stroke="currentColor" stroke-width="2" />
+                <path d="M4 10H20" stroke="currentColor" stroke-width="2" />
+                <path d="M8 14H8.01" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+                <path d="M12 14H16" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+              </svg>
+            </div>
+          </div>
+          <p>Connect to agents hosted on remote servers or cloud platforms. Ideal for production environments and shared
+            resources.</p>
+        </div>
+      </button>
+
+    </div>
+  </main>
+</body>
+
 </html>

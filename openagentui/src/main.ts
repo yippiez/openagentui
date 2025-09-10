@@ -1,6 +1,12 @@
-// import { invoke } from "@tauri-apps/api/core";
 import { applyCSSVariables } from "./config";
+import App from "./App.svelte";
+import { mount } from "svelte";
 
-// Apply color variables when the app loads
+// Apply theme variables
 applyCSSVariables();
+
+// Mount Svelte app
+const app = mount(App, { target: document.body });
+
+export default app;
 

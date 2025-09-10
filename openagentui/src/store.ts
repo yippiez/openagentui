@@ -18,6 +18,6 @@ export type ProjectIdentifier = PathType | SSHConnectionString;
  * @returns An array of recent project identifiers (Paths or SSH connections).
  */
 export function getRecentProjects(): ProjectIdentifier[] {
-    // TODO: implement real retrieval of recent projects
+    // TODO: implement real retrieval of recent projects (e.g., from localStorage or Tauri storage)
     return [];
 }

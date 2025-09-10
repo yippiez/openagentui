@@ -52,9 +52,9 @@
         background: none;
         border: none;
         color: var(--text-secondary);
-        font-size: 0.6875rem;
-        padding: 0.125rem 0.25rem;
-        border-radius: 2px;
+        font-size: 0.75rem;
+        padding: 0.25rem 0.5rem;
+        border-radius: 3px;
         cursor: pointer;
         transition: all 0.15s ease;
         box-shadow: none;

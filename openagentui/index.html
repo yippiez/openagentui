@@ -14,11 +14,11 @@
   <main class="selection-container">
     <div class="options-container">
 
-      <!-- Local Agent Connection Option -->
+      <!-- Local Folder Connection Option -->
       <button class="option-button" id="local-option" onclick="selectLocal()">
         <div class="button-content">
           <div class="title-icon-row">
-            <h3>Local Agent</h3>
+            <h3>Local Folder</h3>
             <div class="icon-container">
               <svg class="option-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -29,16 +29,15 @@
               </svg>
             </div>
           </div>
-          <p>Connect to agents running on your local machine. Perfect for development, testing, and private workflows.
-          </p>
+          <p>Browse and load local folders</p>
         </div>
       </button>
 
-      <!-- Remote/SSH Agent Connection Option -->
+      <!-- Remote SSH Connection Option -->
       <button class="option-button" id="remote-option" onclick="selectRemote()">
         <div class="button-content">
           <div class="title-icon-row">
-            <h3>Remote Agent</h3>
+            <h3>Remote SSH</h3>
             <div class="icon-container">
               <svg class="option-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
@@ -50,8 +49,7 @@
               </svg>
             </div>
           </div>
-          <p>Connect to agents hosted on remote servers or cloud platforms. Ideal for production environments and shared
-            resources.</p>
+          <p>Connect to remote servers via SSH</p>
         </div>
       </button>
 

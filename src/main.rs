@@ -8,6 +8,12 @@ fn setup(mut commands: Commands) {
 
 pub struct DrawablePlugin;
 
+#[derive(Resource)]
+struct PanelEntities {
+    left_panel: Entity,
+    right_panel: Entity,
+}
+
 #[derive(Component)]
 struct Drawable {
     xp: f32, // X position as percent of window width (-1.0 to 1.0, where 0 = center)
@@ -21,31 +27,41 @@ fn setup_drawable(
     mut meshes: ResMut<Assets<Mesh>>,
     mut materials: ResMut<Assets<ColorMaterial>>,
 ) {
-    // Agent/Code view
-    commands.spawn((
-        Drawable {
-            xp: -0.25, // Position to left quarter (-1/4 of window width)
-            yp: 0.0,   // Center vertically (0% of window height)
-            vp: 1.0,   // Full height (100% of window)
-            hp: 0.5,   // Half width (50% of window)
-        },
-        Mesh2d(meshes.add(Rectangle::new(1.0, 1.0))),
-        MeshMaterial2d(materials.add(Color::hsl(30.0, 0.5, 0.5))),
-        Transform::default(),
-    ));
+    // Agent/Code view (Left Panel)
+    let left_panel = commands
+        .spawn((
+            Drawable {
+                xp: -0.25, // Position to left quarter (-1/4 of window width)
+                yp: 0.0,   // Center vertically (0% of window height)
+                vp: 1.0,   // Full height (100% of window)
+                hp: 0.5,   // Half width (50% of window)
+            },
+            Mesh2d(meshes.add(Rectangle::new(1.0, 1.0))),
+            MeshMaterial2d(materials.add(Color::hsl(30.0, 0.5, 0.5))),
+            Transform::default(),
+        ))
+        .id();
 
-    // Document/Visualization View
-    commands.spawn((
-        Drawable {
-            xp: 0.75, // Position to left quarter (-1/4 of window width)
-            yp: 0.0,  // Center vertically (0% of window height)
-            vp: 1.0,  // Full height (100% of window)
-            hp: 0.5,  // Half width (50% of window)
-        },
-        Mesh2d(meshes.add(Rectangle::new(1.0, 1.0))),
-        MeshMaterial2d(materials.add(Color::hsl(225.0, 0.04, 0.18))),
-        Transform::default(),
-    ));
+    // Document/Visualization View (Right Panel)
+    let right_panel = commands
+        .spawn((
+            Drawable {
+                xp: 0.25, // Position to right quarter (1/4 of window width)
+                yp: 0.0,  // Center vertically (0% of window height)
+                vp: 1.0,  // Full height (100% of window)
+                hp: 0.5,  // Half width (50% of window)
+            },
+            Mesh2d(meshes.add(Rectangle::new(1.0, 1.0))),
+            MeshMaterial2d(materials.add(Color::hsl(225.0, 0.04, 0.18))),
+            Transform::default(),
+        ))
+        .id();
+
+    // Insert the panel entities resource for global access
+    commands.insert_resource(PanelEntities {
+        left_panel,
+        right_panel,
+    });
 }
 
 fn update_drawable(mut query: Query<(&mut Transform, &Drawable)>, windows: Query<&Window>) {
